@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace Sudoku {
-    class Cell : INotifyPropertyChanged {
+    public class Cell : INotifyPropertyChanged {
         private int cellValue = 0;
         public event PropertyChangedEventHandler PropertyChanged;
 

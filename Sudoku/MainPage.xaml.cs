@@ -7,6 +7,7 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using System.Collections.ObjectModel;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -20,10 +21,14 @@ namespace Sudoku {
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class MainPage : Page {
-        Cell cell = new Cell { Value = 2 };
+        Grid sudoku = new Grid();
+        public Cell cell = new Cell { Value = 2 };
+        public ObservableCollection<ObservableCollection<Cell>> TestSudoku { get { return sudoku.SudokuGrid;  } }
+        public int TestCell { get { return cell.Value;  } }
+        public int TestData { get { return 5;  } }
         public MainPage() {
             this.InitializeComponent();
-            this.DataContext = cell;
+            this.DataContext = this;
         }
     }
 }
